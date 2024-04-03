@@ -2,7 +2,7 @@ require_relative "car"
 
 class Garage
   def initialize
-    @cars = []
+   @cars = []
   end
 
   def open
@@ -22,7 +22,7 @@ class Garage
       when "store"
           log()
           drive_in(@make, @model, @year, @color)
-          
+        
 
       when "retrieve"
           log()
@@ -48,15 +48,13 @@ class Garage
   def drive_in(make, model, year, color)
     car = Car.new(make, model, year, color)
     @cars.push(car)
-    puts "#{car.to_s} has been pulled in."
+   puts car.pulled
   end
 
   def drive_out(make, model, year, color)
     car = @cars.find { |car| car.to_s }
-
     @cars.delete(car)
-
-    puts "#{car.to_s} has left the garage."
+   puts car.left
   end
 
   def log()
